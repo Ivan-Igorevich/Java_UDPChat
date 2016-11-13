@@ -10,7 +10,8 @@ public class UDP extends JFrame{
     private final int FRM_LOC_Y = 100;
     private final int FRM_WIDTH = 400;
     private final int FRM_HEIGHT = 400;
-    private final String IP_BROADCAST = "127.0.0.1";//"10.0.1.255";
+    //private final String IP_BROADCAST = "127.0.0.1";
+    private final String IP_BROADCAST = "10.0.1.255";
     private final int PORT = 9876;
     private JTextArea taMain;
     private JTextField tfMsg;
@@ -27,9 +28,9 @@ public class UDP extends JFrame{
         }
         private void customize() throws Exception{
             DatagramSocket receiverSocket = new DatagramSocket(PORT);
-            byte[] receiveData = new byte[1024];
             Pattern regex = Pattern.compile(".");
             while (true) {
+                byte[] receiveData = new byte[1024];
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
                 receiverSocket.receive(receivePacket);
                 InetAddress IPAddress = receivePacket.getAddress();
@@ -52,7 +53,7 @@ public class UDP extends JFrame{
         byte[] sendData;
         String sentence = tfMsg.getText();
         tfMsg.setText("");
-        sendData = sentence.getBytes();
+        sendData = sentence.getBytes("UTF-8");
         DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, PORT);
         sendSocket.send(sendPacket);
    }
