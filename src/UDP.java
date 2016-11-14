@@ -28,7 +28,7 @@ public class UDP extends JFrame{
         }
         private void customize() throws Exception{
             DatagramSocket receiverSocket = new DatagramSocket(PORT);
-            Pattern regex = Pattern.compile(".");
+            Pattern regex = Pattern.compile("[\u0020-\uFFFF]");
             while (true) {
                 byte[] receiveData = new byte[1024];
                 DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
