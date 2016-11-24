@@ -4,14 +4,13 @@ import java.net.*;
 import java.util.regex.*;
 
 public class UDP extends JFrame{
-
     private final String FRM_TITLE = "Our tiny chat";
     private final int FRM_LOC_X = 100;
     private final int FRM_LOC_Y = 100;
     private final int FRM_WIDTH = 400;
     private final int FRM_HEIGHT = 400;
     //private final String IP_BROADCAST = "127.0.0.1";
-    private final String IP_BROADCAST = "10.0.1.255";
+    private final String IP_BROADCAST = "10.0.1.255"; // apple router
     private final int PORT = 9876;
     private JTextArea taMain;
     private JTextField tfMsg;
